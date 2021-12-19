@@ -11,6 +11,171 @@
  * It will be included in all color schemes
  */
 
+header {
+
+    .navbar {
+        color: $navbar-inverse-color;
+        margin-bottom: 0px;
+        border: none;
+    }
+
+    .navbar-default{
+
+        background-color: #FFFFFF;
+
+        .navbar-brand {
+        color: $navbar-inverse-brand-color;
+        &:hover,
+        &:focus {
+            color: $navbar-inverse-brand-hover-color;
+            background-color: $navbar-inverse-brand-hover-bg;
+        }
+    }
+
+    .navbar-text {
+        color: $navbar-inverse-color;
+    }
+
+     .navbar-toggle, .navbar-nav  {
+
+         .icon-bar {
+             background-color: $brand-primary;
+         }
+
+         border-color: transparent;
+         color: $brand-primary;
+         &:hover,
+         &:focus {
+             color: $navbar-inverse-link-hover-color;
+             background-color: $navbar-inverse-link-active-bg;
+         }
+
+        > li > a {
+            color: $brand-primary;
+            &:hover,
+            &:focus {
+                color: $navbar-inverse-link-hover-color;
+                background-color: $accent;
+            }
+        }
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $navbar-inverse-link-active-color;
+                background-color: $navbar-inverse-link-active-bg;
+            }
+        }
+        > .disabled > a {
+            &,
+            &:hover,
+            &:focus {
+                color: $navbar-inverse-link-disabled-color;
+                background-color: $navbar-inverse-link-disabled-bg;
+            }
+        }
+             > .open > a {
+                 &,
+                 &:hover,
+                 &:focus {
+                     background-color: $accent;
+                     color: $navbar-inverse-link-active-color;
+                 }
+             }
+
+    }
+
+
+
+    .navbar-toggle {
+        border-color: $navbar-inverse-toggle-border-color;
+        &:hover,
+        &:focus {
+            background-color: $navbar-inverse-toggle-hover-bg;
+        }
+        .icon-bar {
+            background-color: $brand-primary;
+        }
+    }
+    }
+}
+
+.trail-wrapper {
+    background-color: $brand-primary;
+    border-bottom: 5px solid $accent;
+    color: #FFFFFF;
+
+    .breadcrumb{
+        background-color: transparent;
+        margin-bottom: 0;
+
+        > li {
+            + li:before, a {
+                color: #FFFFFF;
+            }
+        }
+        > .active {
+            color: $accent;
+        }
+    }
+
+    .sidebar-toggle {
+        position: relative;
+        margin-right: $navbar-padding-horizontal;
+        padding: 10px;
+        @include navbar-vertical-align(34px);
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: $border-radius-base;
+        margin: 0;
+        //border-color: $navbar-default-toggle-border-color;
+        .icon-bar {
+            background-color: $component-active-bg;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: $component-active-bg;
+
+            .icon-bar {
+                background-color: $component-active-color;
+            }
+        }
+    }
+
+    .sidebar-toggle .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+    }
+
+    .sidebar-toggle .icon-bar + .icon-bar {
+        margin-top: 4px;
+    }
+}
+
+// Links
+
+a#trail-dropdown-toggle {
+  color: #FFFFFF;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $accent;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @include tab-focus;
+  }
+}
+
+a, a:hover {
+  text-decoration: none !important;
+}
+
 //example mixin to set the text-selection style
 @mixin selection {
     ::-moz-selection { @content; }
@@ -19,7 +184,27 @@
 
 @include selection {
     color: white;
-    background: hotpink;
+    background: $brand-primary;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url('../vendor/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot');
+    src: url('../vendor/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../vendor/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.woff') format('woff'), url('../vendor/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), url('../vendor/bootstrap-sass-official/assets/fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+
+.breadcrumb > li + li:before {
+  content: "\00BB";
+}
+
+.thumbnail > img, .thumbnail > img, .thumbnail a > img {
+  max-height: 200px;
+  margin: auto;
+}
+
+.dropdown-menu > li > a { /* Wrap text in dropdown */
+  white-space: inherit;
+  color: $brand-primary;
 }
 
 .publication-records-modal, .publication-records-modal ul {
@@ -58,4 +243,36 @@
   #aspect_submission_StepTransformer_item_publication-title{
     margin-bottom:5px;
   }
+}
+
+.navbar {
+    min-height: 70px;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+    height: 54px
+}
+
+ header .navbar-brand img {
+    height: 60px
+}
+
+.headerInfoName {
+    color: $brand-primary;
+    font-size: 33px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-left: -10px;
+    position: absolute
+}
+
+.headerInfoText {
+    font-size: 20px;
+    color: $brand-primary;
+    position: absolute;
+    top: 38px;
+    margin-left: -10px;
+    line-height: 15px;
 }
