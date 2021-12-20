@@ -101,7 +101,7 @@
          <dc-qualifier>citation</dc-qualifier>
          <repeatable>false</repeatable>
          <label>Citation</label>
-         <input-type>onebox</input-type>
+         <input-type>textarea</input-type>
          <hint>Enter the standard citation for the previously issued instance of this item.</hint>
          <required></required>
        </field>
@@ -156,17 +156,187 @@ it, please enter the types and the actual numbers or codes.</hint>
      <page number="2">
        <field>
          <dc-schema>dc</dc-schema>
-         <dc-element>subject</dc-element>
-         <dc-qualifier></dc-qualifier>
-         <!-- An input-type of twobox MUST be marked as repeatable -->
-         <repeatable>true</repeatable>
-         <label>Subject Keywords</label>
-         <input-type>twobox</input-type>
-         <hint>Enter appropriate subject keywords or phrases. </hint>
-         <required></required>
-         <vocabulary>srsc</vocabulary>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>journaltitle</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Journal Title</label>
+         <type-bind>Article,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the name of the journal for this item. </hint>
+         <required>You must enter the Journal title of this article.</required>
        </field>
 
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>booktitle</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Book Title</label>
+         <type-bind>Book chapter</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the title of the Book for which this item is part of. </hint>
+         <required>You must enter the Book title of this chapter to proceed.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>conferencetitle</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Proceedings Title</label>
+         <type-bind>Conference paper</type-bind>
+         <input-type>textarea</input-type>
+         <hint> Enter the Proceedngs title for which this item is part of. </hint>
+         <required>You must enter the Proceedings title of this paper to proceed.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>volume</dc-qualifier>
+         <label>Volume</label>
+         <type-bind>Article,magazineArticle,Book,Book chapter</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the volume number if available. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>issue</dc-qualifier>
+         <label>Issue</label>
+         <type-bind>Article,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the issue number if available. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>uri</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Related link</label>
+         <input-type>onebox</input-type>
+         <hint> Enter the url of the full text (if available and open access) from the publisher or external sites. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>firstpage</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Starting page</label>
+         <type-bind>Article,Conference paper,Book chapter,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the starting page of this article. </hint>
+         <required>You must enter the starting page of this article.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>lastpage</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Ending page</label>
+         <type-bind>Article,Conference paper,Book chapter,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the end page of this article. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>advisor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Thesis adviser</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>name</input-type>
+         <hint>Enter the names of the thesis adviser of this item.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>corporateauthor</dc-qualifier>
+         <label>Corporate author</label>
+         <type-bind>Book,Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Enter the organization or corporate name for this item IF no personal author(s) are found, eg Capiz State University</hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>chair</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Committee chair</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>name</input-type>
+         <hint></hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>committeemember</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Committee member</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>name</input-type>
+         <hint></hint>
+       </field>
+
+       <field>
+         <dc-schema>thesis</dc-schema>
+         <dc-element>degree</dc-element>
+         <dc-qualifier>name</dc-qualifier>
+         <label>Degree</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Name of the degree associated with the work as it appears within the work. (example: Masters of Arts in Education)</hint>
+         <required>You must enter the Degree's name.</required>
+       </field>
+
+       <field>
+         <dc-schema>thesis</dc-schema>
+         <dc-element>degree</dc-element>
+         <dc-qualifier>level</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Level</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Level of education associated with the document. (e.g., Undergraduate, Masters, Doctoral, Postdoctoral)</hint>
+         <required>You must enter the Degree level for this item</required>
+       </field>
+
+       <field>
+         <dc-schema>thesis</dc-schema>
+         <dc-element>degree</dc-element>
+         <dc-qualifier>discipline</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Discipline</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Area of study of the intellectual content of the document. Usually, this will be the name of a program or department.</hint>
+         <required>You must enter the Degree discipline for this item</required>
+       </field>
+
+       <field>
+         <dc-schema>thesis</dc-schema>
+         <dc-element>degree</dc-element>
+         <dc-qualifier>grantor</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Degree Grantor</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Institution granting the degree associated with the work.</hint>
+         <required>You must enter the Degree grantor for this item</required>
+       </field>
+
+     </page>
+
+     <page number="3">
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
@@ -175,6 +345,17 @@ it, please enter the types and the actual numbers or codes.</hint>
          <label>Abstract</label>
          <input-type>textarea</input-type>
          <hint>Enter the abstract of the item. </hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Description</label>
+         <input-type>textarea</input-type>
+         <hint>Enter any other description or comments in this box. </hint>
          <required></required>
        </field>
 
@@ -191,6 +372,241 @@ it, please enter the types and the actual numbers or codes.</hint>
 
        <field>
          <dc-schema>dc</dc-schema>
+         <dc-element>format</dc-element>
+         <dc-qualifier>extent</dc-qualifier>
+         <label>Physical description</label>
+         <type-bind>Book,Thesis,Dissertation,Technical Report</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Enter the physical details (eg. ii, 96 p. : ill. (col.).</hint>
+       </field>
+     </page>
+
+     <page number="4">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Keywords</label>
+         <input-type>twobox</input-type>
+         <hint>Enter appropriate subject keywords or phrases (Please use author supplied subjects if available for this field). </hint>
+         <required></required>
+         <!-- <vocabulary>srsc</vocabulary> -->
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>agrovoc</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>AGROVOC Keywords</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the opics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
+         <!-- <vocabulary>EukaryotaAuthority</vocabulary> -->
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>lcsh</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>LC Subject Headings</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the Library of Congress Subject Headings of this item</hint>
+         <!-- <vocabulary>FASTAuthority</vocabulary> -->
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>coverage</dc-element>
+         <dc-qualifier>spatial</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Geographic Names</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the appropriate geographic name for this item</hint>
+         <!-- <vocabulary>TGNAuthority</vocabulary> -->
+       </field>
+     </page>
+   </form>
+
+   <form name="articles">
+     <page number="1">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>contributor</dc-element>
+         <dc-qualifier>author</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Authors</label>
+         <input-type>name</input-type>
+         <hint>Enter the names of the authors of this item.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>title</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Title</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the main title of the item.</hint>
+         <required>You must enter a main title for this item.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>date</dc-element>
+         <dc-qualifier>issued</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Date of Issue</label>
+         <input-type>date</input-type>
+         <hint>Please give the date of previous publication or public distribution.
+           You can leave out the day and/or month if they aren't
+           applicable.</hint>
+         <required>You must enter at least the year.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>publisher</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Publisher</label>
+         <input-type>onebox</input-type>
+         <hint>Enter the name of the publisher of the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier>citation</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Citation</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the standard citation for the previously issued instance of this item.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>identifier</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of qualdrop_value MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Identifiers</label>
+         <input-type value-pairs-name="common_identifiers">qualdrop_value</input-type>
+         <hint>If the item has any identification numbers or codes associated with
+           it, please enter the types and the actual numbers or codes.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>type</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Type</label>
+         <input-type value-pairs-name="common_types">dropdown</input-type>
+         <hint>Select the type(s) of content of the item. To select more than one value in the list, you may have to hold down the "CTRL" or "Shift" key.</hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>language</dc-element>
+         <dc-qualifier>iso</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Language</label>
+         <input-type value-pairs-name="common_iso_languages">dropdown</input-type>
+         <hint>Select the language of the main content of the item.  If the language does not appear in the list, please select 'Other'.  If the content does not really have a language (for example, if it is a dataset or an image) please select 'N/A'.</hint>
+         <required></required>
+       </field>
+     </page>
+
+     <page number="2">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>journaltitle</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Journal Title</label>
+         <input-type>onebox</input-type>
+         <hint> Enter the name of the journal for this item. </hint>
+         <required>You must enter the Journal title of this article.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>volume</dc-qualifier>
+         <label>Volume</label>
+         <type-bind>Article,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the volume number. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>issue</dc-qualifier>
+         <label>Issue</label>
+         <type-bind>Article,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the issue number. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>firstpage</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Starting page</label>
+         <type-bind>Article,Conference paper,Book chapter,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the starting page of this article. </hint>
+         <required>You must enter the starting page of this article.</required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>citation</dc-element>
+         <dc-qualifier>lastpage</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Ending page</label>
+         <type-bind>Article,Conference paper,Book chapter,magazineArticle</type-bind>
+         <input-type>onebox</input-type>
+         <hint> Enter the end page of this article. </hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>relation</dc-element>
+         <dc-qualifier>uri</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Related link</label>
+         <input-type>onebox</input-type>
+         <hint> Enter the url of the full text (if available and open access) from the publisher or external sites. </hint>
+       </field>
+     </page>
+
+     <page number="3">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>abstract</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Abstract</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the abstract of the item. </hint>
+         <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
          <dc-element>description</dc-element>
          <dc-qualifier></dc-qualifier>
          <repeatable>false</repeatable>
@@ -198,6 +614,66 @@ it, please enter the types and the actual numbers or codes.</hint>
          <input-type>textarea</input-type>
          <hint>Enter any other description or comments in this box. </hint>
          <required></required>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>description</dc-element>
+         <dc-qualifier>sponsorship</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Sponsors</label>
+         <input-type>textarea</input-type>
+         <hint>Enter the names of any sponsors and/or funding codes in the box. </hint>
+         <required></required>
+       </field>
+     </page>
+
+     <page number="4">
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier></dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Subject Keywords</label>
+         <input-type>twobox</input-type>
+         <hint>Enter appropriate subject keywords or phrases (Please use author supplied subjects if available for this field). </hint>
+         <required></required>
+         <!-- <vocabulary>srsc</vocabulary> -->
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>agrovoc</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>AGROVOC Keywords</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the opics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>lcsh</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>LC Subject Headings</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the Library of Congress Subject Headings of this item</hint>
+         <!--<vocabulary>FASTAuthority</vocabulary>-->
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>coverage</dc-element>
+         <dc-qualifier>spatial</dc-qualifier>
+         <repeatable>true</repeatable>
+         <label>Geographic Names</label>
+         <input-type>twobox</input-type>
+         <hint>Enter the appropriate geographic name for this item</hint>
+         <!--<vocabulary>TGNAuthority</vocabulary>-->
        </field>
      </page>
    </form>
@@ -239,6 +715,14 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>issn</stored-value>
      </pair>
      <pair>
+       <displayed-value>ESSN</displayed-value>
+       <stored-value>essn</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>DOI</displayed-value>
+       <stored-value>doi</stored-value>
+     </pair>
+     <pair>
        <displayed-value>Other</displayed-value>
        <stored-value>other</stored-value>
      </pair>
@@ -278,8 +762,20 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Book chapter</stored-value>
      </pair>
      <pair>
+           <displayed-value>Conference paper</displayed-value>
+           <stored-value>Conference paper</stored-value>
+     </pair>
+       <pair>
+           <displayed-value>Conference publication</displayed-value>
+           <stored-value>Conference publication</stored-value>
+     </pair>
+     <pair>
        <displayed-value>Dataset</displayed-value>
        <stored-value>Dataset</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Dissertation</displayed-value>
+       <stored-value>Dissertation</stored-value>
      </pair>
      <pair>
        <displayed-value>Learning Object</displayed-value>
@@ -294,12 +790,28 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value>Image, 3-D</stored-value>
      </pair>
      <pair>
+       <displayed-value>Magazine</displayed-value>
+       <stored-value>Magazine</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Magazine article</displayed-value>
+       <stored-value>magazineArticle</stored-value>
+     </pair>
+     <pair>
        <displayed-value>Map</displayed-value>
        <stored-value>Map</stored-value>
      </pair>
      <pair>
        <displayed-value>Musical Score</displayed-value>
        <stored-value>Musical Score</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Newsletter</displayed-value>
+       <stored-value>Newsletter</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Patent</displayed-value>
+       <stored-value>Patent</stored-value>
      </pair>
      <pair>
        <displayed-value>Plan or blueprint</displayed-value>
@@ -360,12 +872,20 @@ it, please enter the types and the actual numbers or codes.</hint>
        <stored-value></stored-value>
      </pair>
      <pair>
-       <displayed-value>English (United States)</displayed-value>
-       <stored-value>en_US</stored-value>
-      </pair>
-     <pair>
        <displayed-value>English</displayed-value>
        <stored-value>en</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Filipino</displayed-value>
+       <stored-value>fil</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Hiligaynon</displayed-value>
+       <stored-value>hil</stored-value>
+     </pair>
+     <pair>
+       <displayed-value>Cebuano (Bisaya)</displayed-value>
+       <stored-value>ceb</stored-value>
      </pair>
      <pair>
        <displayed-value>Spanish</displayed-value>
