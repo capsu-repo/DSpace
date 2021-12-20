@@ -403,7 +403,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <repeatable>true</repeatable>
          <label>AGROVOC Keywords</label>
          <input-type>twobox</input-type>
-         <hint>Enter the opics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
+         <hint>Enter the topics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
          <!-- <vocabulary>EukaryotaAuthority</vocabulary> -->
        </field>
 
@@ -650,7 +650,7 @@ it, please enter the types and the actual numbers or codes.</hint>
          <repeatable>true</repeatable>
          <label>AGROVOC Keywords</label>
          <input-type>twobox</input-type>
-         <hint>Enter the opics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
+         <hint>Enter the topics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
        </field>
 
        <field>
