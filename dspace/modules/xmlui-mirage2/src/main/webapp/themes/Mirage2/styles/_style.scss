@@ -278,3 +278,7 @@ a, a:hover {
     margin-left: -10px;
     line-height: 15px;
 }
+
+.modal-backdrop { /* Send modal window to front */
+  z-index: -1;
+}
