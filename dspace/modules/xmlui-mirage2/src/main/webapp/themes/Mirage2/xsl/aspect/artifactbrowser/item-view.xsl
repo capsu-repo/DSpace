@@ -513,21 +513,6 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-MeSH-entry">
-        <xsl:if test="@authority">
-            <xsl:text>&#160;</xsl:text>
-            <a>
-                <xsl:attribute name="href">
-                    <xsl:value-of select="@authority"/>
-                </xsl:attribute>
-                <xsl:attribute name="target">
-                    <xsl:text>_blank</xsl:text>
-                </xsl:attribute>
-                <img src="{$theme-path}images/MeSH-logo.jpg" alt="MeSH" class="vocabulary" title="MeSH"/>
-            </a>
-        </xsl:if>
-    </xsl:template>
-
     <xsl:template name="itemSummaryView-DIM-TGN-entry">
         <xsl:if test="@authority">
             <xsl:text>&#160;</xsl:text>
@@ -641,9 +626,8 @@
 
     <xsl:template name="itemSummaryView-DIM-keyword">
         <xsl:if test="dim:field[@element='subject' and not(@qualifier)]
-        or dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']
-        or dim:field[@element='subject'][@qualifier='mesh']
-or dim:field[@element='coverage'][@qualifier='spatial']">
+        or dim:field[@element='subject'][@qualifier='agrovoc']
+        or dim:field[@element='coverage'][@qualifier='spatial']">
             <div class="item-page-field-wrapper table">
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-keyword</i18n:text></h5>
                 <div>
@@ -661,11 +645,11 @@ or dim:field[@element='coverage'][@qualifier='spatial']">
                             <xsl:text>; </xsl:text>
                         </xsl:if>
                     </xsl:for-each>
-                    <xsl:if test="dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']">
+                    <xsl:if test="dim:field[@element='subject'][@qualifier='agrovoc']">
                         <xsl:if test="count(dim:field[@element='subject' and not(@qualifier)]) != 0">
                             <xsl:text>; </xsl:text>
                         </xsl:if>
-                        <xsl:for-each select="dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']">
+                        <xsl:for-each select="dim:field[@element='subject'][@qualifier='agrovoc']">
                             <a>
                                 <xsl:attribute name="href">
                                     <xsl:value-of
@@ -676,36 +660,14 @@ or dim:field[@element='coverage'][@qualifier='spatial']">
                                 <xsl:value-of select="text()"/>
                             </a>
                             <xsl:call-template name="itemSummaryView-DIM-AGROVOC-entry"/>
-                            <xsl:if test="count(following-sibling::dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']) != 0">
-                                <xsl:text>; </xsl:text>
-                            </xsl:if>
-                        </xsl:for-each>
-                    </xsl:if>
-                    <xsl:if test="dim:field[@element='subject'][@qualifier='mesh']">
-                        <xsl:if test="count(dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']) != 0
-                        or count(dim:field[@element='subject' and not(@qualifier)]) != 0">
-                            <xsl:text>; </xsl:text>
-                        </xsl:if>
-                        <xsl:for-each select="dim:field[@element='subject'][@qualifier='mesh']">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="concat($context-path,'/discover?filtertype=')"/>
-                                    <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
-                                    <xsl:copy-of select="."/>
-                                </xsl:attribute>
-                                <xsl:value-of select="text()"/>
-                            </a>
-                            <xsl:call-template name="itemSummaryView-DIM-MeSH-entry"/>
-                            <xsl:if test="count(following-sibling::dim:field[@element='subject'][@qualifier='mesh']) != 0">
+                            <xsl:if test="count(following-sibling::dim:field[@element='subject'][@qualifier='agrovoc']) != 0">
                                 <xsl:text>; </xsl:text>
                             </xsl:if>
                         </xsl:for-each>
                     </xsl:if>
                     <xsl:if test="dim:field[@element='coverage'][@qualifier='spatial']">
-                        <xsl:if test="count(dim:field[@mdschema='local'][@element='subject'][@qualifier='scientificname']) != 0
-                        or count(dim:field[@element='subject' and not(@qualifier)]) != 0
-                        or count(dim:field[@element='subject'][@qualifier='mesh']) !=0">
+                        <xsl:if test="count(dim:field[@element='subject'][@qualifier='agrovoc']) != 0
+                        or count(dim:field[@element='subject' and not(@qualifier)]) != 0">
                             <xsl:text>; </xsl:text>
                         </xsl:if>
                         <xsl:for-each select="dim:field[@element='coverage'][@qualifier='spatial']">
