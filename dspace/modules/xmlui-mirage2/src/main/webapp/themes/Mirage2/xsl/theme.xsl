@@ -41,6 +41,7 @@
     <!--<xsl:import href="xsl/aspect/administrative/administrative.xsl"/>-->
     <xsl:import href="aspect/artifactbrowser/common.xsl"/>
     <xsl:import href="aspect/artifactbrowser/item-list.xsl"/>
+    <xsl:import href="aspect/artifactbrowser/citation.xsl"/>
     <xsl:import href="aspect/artifactbrowser/item-view.xsl"/>
     <xsl:import href="aspect/artifactbrowser/community-list.xsl"/>
     <xsl:import href="aspect/artifactbrowser/collection-list.xsl"/>

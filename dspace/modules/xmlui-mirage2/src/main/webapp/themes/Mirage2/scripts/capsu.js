@@ -6,3 +6,5 @@ $(function() {
         persist: "location"
     });
 });
+
+$(function () { $("[data-toggle = 'tooltip']").tooltip(); });
