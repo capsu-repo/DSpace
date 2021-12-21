@@ -282,3 +282,7 @@ a, a:hover {
 .modal-backdrop { /* Send modal window to front */
   z-index: -1;
 }
+
+a.disabled:hover {
+    cursor:not-allowed
+ }
