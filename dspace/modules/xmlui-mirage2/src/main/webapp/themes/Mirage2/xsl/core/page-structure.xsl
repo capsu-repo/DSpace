@@ -129,6 +129,9 @@
                     </xsl:choose>
                     <!-- Javascript at the bottom for fast page loading -->
                     <xsl:call-template name="addJavascript"/>
+                    <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='xhtml_head_item']">
+                        <xsl:call-template name="externalLinkModal"/>
+                    </xsl:if>
                 </body>
                 <xsl:text disable-output-escaping="yes">&lt;/html&gt;</xsl:text>
 
@@ -968,6 +971,45 @@ like: ?filtertype=subject&filter_relational_operator=equals&filter=keyword1 it a
                 <xsl:text>?locale-attribute=</xsl:text>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="externalLinkModal">
+        <!-- Modal -->
+        <div class="modal fade" id="externalLinkModal" tabindex="-1" role="dialog" aria-labelledby="externalLinkModalLabel" aria-hidden="true" data-backdrop="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">
+                                <xsl:text disable-output-escaping="yes">&amp;times;</xsl:text>
+                            </span>
+                        </button>
+                        <h4 class="modal-title">EXTERNAL LINKS DISCLAIMER</h4>
+                    </div>
+                    <div class="modal-body justify">
+                        <p>This link is being provided as a convenience and for informational purposes only. Capiz State University bears no responsibility for the accuracy, legality or content of the external site or for that of subsequent links. Contact the external site for answers to questions regarding its content.</p>
+                        <p>If you come across any external links that don't work, we would be grateful if you could report them to the <a href="/contact">repository administrators</a>.</p>
+                        <p>Click <b>DOWNLOAD</b> to open/view the file.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a>
+                            <xsl:attribute name="target">
+                                <xsl:text>_blank</xsl:text>
+                            </xsl:attribute>
+                            <xsl:attribute name="class">
+                                <xsl:text>btn btn-primary pull-left</xsl:text>
+                            </xsl:attribute>
+                            <xsl:attribute name="href">
+                                <xsl:value-of select="document($otherItemMetadataURL)//dim:field[@element='relation' and @qualifier='uri']/text()"/>
+                            </xsl:attribute>
+                            <xsl:text>Download</xsl:text>
+                        </a>
+                        <xsl:comment> location of mets.xml is: <xsl:value-of select="$otherItemMetadataURL"/> </xsl:comment>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </xsl:template>
 
 </xsl:stylesheet>
