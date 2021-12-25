@@ -325,12 +325,29 @@ it, please enter the types and the actual numbers or codes.</hint>
        <field>
          <dc-schema>thesis</dc-schema>
          <dc-element>degree</dc-element>
+         <dc-qualifier>department</dc-qualifier>
+         <repeatable>false</repeatable>
+         <label>Department</label>
+         <type-bind>Thesis,Dissertation</type-bind>
+         <input-type>onebox</input-type>
+         <hint>Name of the department or school awarding Degree. This element record the name of a department or school
+           associated with the work. Most title page has the chair of the student's department listed under the committee
+           members, which will help to complete this field's value.
+         </hint>
+         <required>You must enter the Department for this item</required>
+       </field>
+
+       <field>
+         <dc-schema>thesis</dc-schema>
+         <dc-element>degree</dc-element>
          <dc-qualifier>grantor</dc-qualifier>
          <repeatable>true</repeatable>
          <label>Degree Grantor</label>
          <type-bind>Thesis,Dissertation</type-bind>
          <input-type>onebox</input-type>
-         <hint>Institution granting the degree associated with the work.</hint>
+         <hint>Institution granting the degree associated with the work. Degree grantor institution element should be
+           entered in free text form as it appears on the title page or equivalent.
+         </hint>
          <required>You must enter the Degree grantor for this item</required>
        </field>
 

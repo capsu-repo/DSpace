@@ -156,6 +156,7 @@
                     <xsl:call-template name="itemSummaryView-DIM-discipline"/>
                     <xsl:call-template name="itemSummaryView-DIM-degree"/>
                     <xsl:call-template name="itemSummaryView-DIM-level"/>
+                    <xsl:call-template name="itemSummaryView-DIM-department"/>
                     <div class="row">
                         <xsl:call-template name="itemSummaryView-DIM-DDC"/>
                         <xsl:call-template name="itemSummaryView-DIM-format"/>
@@ -430,6 +431,19 @@
         </xsl:if>
     </xsl:template>
 
+    <xsl:template name="itemSummaryView-DIM-department">
+        <xsl:if test="dim:field[@element='degree'][@qualifier='department' and descendant::text()]">
+            <div class="item-page-field-wrapper table">
+                <h5>
+                    <i18n:text>xmlui.dri2xhtml.METS-1.0.item-department</i18n:text>
+                </h5>
+                <xsl:for-each select="dim:field[@element='degree'][@qualifier='department']">
+                    <xsl:copy-of select="node()"/>
+                </xsl:for-each>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
     <xsl:template name="itemSummaryView-DIM-authors-entry">
         <div>
             <xsl:if test="@authority">
@@ -450,8 +464,8 @@
                             <xsl:text>/discover?filtertype=member&amp;filter_relational_operator=equals&amp;sort_by=dc.date.issued_dt&amp;order=desc&amp;filter=</xsl:text>
                             <xsl:copy-of select="node()"/>
                         </xsl:when>
-                        <xsl:when test="@qualifier='adviser'">
-                            <xsl:text>/discover?filtertype=adviser&amp;filter_relational_operator=equals&amp;sort_by=dc.date.issued_dt&amp;order=desc&amp;filter=</xsl:text>
+                        <xsl:when test="@qualifier='advisor'">
+                            <xsl:text>/discover?filtertype=advisor&amp;filter_relational_operator=equals&amp;sort_by=dc.date.issued_dt&amp;order=desc&amp;filter=</xsl:text>
                             <xsl:copy-of select="node()"/>
                         </xsl:when>
                     </xsl:choose>
