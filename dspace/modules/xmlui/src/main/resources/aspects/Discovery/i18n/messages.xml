@@ -46,7 +46,8 @@
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.type_filter">Content Type</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dc.date.issued">Date Issued</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_dateIssued">Date Issued</message>
-    
+    <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_type">Type</message>
+
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.type_has_content_in_original_bundle">Has File(s)</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.value_has_content_in_original_bundle_true">Yes</message>
     <message key="xmlui.ArtifactBrowser.AdvancedSearch.value_has_content_in_original_bundle_false">No</message>
@@ -105,6 +106,7 @@
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.has_content_in_original_bundle">Has File(s)</message>
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.original_bundle_filenames">Filename</message>
     <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.original_bundle_descriptions">File description</message>
+    <message key="xmlui.ArtifactBrowser.SimpleSearch.filter.type">Type</message>
 
 
     <message key="xmlui.dri2xhtml.structural.pagination-info.nototal">Now showing items {0}-{1}</message>

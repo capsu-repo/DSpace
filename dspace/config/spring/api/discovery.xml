@@ -104,6 +104,7 @@
                 <ref bean="searchFilterMember" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterType" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
         </property>
@@ -119,6 +120,7 @@
                 <ref bean="searchFilterMember" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterType" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -145,6 +147,12 @@
                 <!--<value>search.resourcetype:2</value>-->
             <!--</list>-->
         <!--</property>-->
+        <property name="defaultFilterQueries">
+        <list>
+        <!--Only find items-->
+        <value>search.resourcetype:2</value>
+        </list>
+        </property>
         <!--The configuration for the recent submissions-->
         <property name="recentSubmissionConfiguration">
             <bean class="org.dspace.discovery.configuration.DiscoveryRecentSubmissionsConfiguration">
@@ -221,6 +229,7 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterType" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
             </list>
         </property>
@@ -236,6 +245,7 @@
                 <ref bean="searchFilterAuthor" />
                 <ref bean="searchFilterSubject" />
                 <ref bean="searchFilterIssued" />
+                <ref bean="searchFilterType" />
 		        <ref bean="searchFilterContentInOriginalBundle"/>
                 <ref bean="searchFilterFileNameInOriginalBundle" />
                 <ref bean="searchFilterFileDescriptionInOriginalBundle" />
@@ -454,7 +464,7 @@
                 <value>dc.subject.*</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+        <property name="facetLimit" value="5"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
         <property name="splitter" value="::"/>
@@ -495,6 +505,17 @@
         <property name="metadataFields">
             <list/>
         </property>
+    </bean>
+
+    <bean id="searchFilterType" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="type"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.type</value>
+            </list>
+        </property>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="VALUE"/>
     </bean>
 
     <!--Sort properties-->
