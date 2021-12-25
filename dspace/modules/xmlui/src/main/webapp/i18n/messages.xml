@@ -2228,6 +2228,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-discipline">Degree Discipline</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-degree">Degree Name</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-level">Degree Level</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-department">Department</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-format">Physical Description</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-ddc">Shelf Location</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-issn">ISSN</message>
