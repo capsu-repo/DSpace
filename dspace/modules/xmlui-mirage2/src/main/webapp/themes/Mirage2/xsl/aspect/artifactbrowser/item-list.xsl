@@ -222,6 +222,9 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
+                    <xsl:when test="mets:fileGrp[@USE='ORE']">
+                        <xsl:apply-templates select="//mets:fileSec/mets:fileGrp[@USE='ORE']" mode="itemSummaryView-DIM-thumbnail" />
+                    </xsl:when>
                     <xsl:otherwise>
                         <img class="img-thumbnail" alt="xmlui.mirage2.item-list.thumbnail" i18n:attr="alt">
                             <xsl:attribute name="data-src">
