@@ -230,6 +230,9 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
+                <xsl:when test="//mets:fileSec/mets:fileGrp[@USE='ORE']">
+                    <xsl:apply-templates select="//mets:fileSec/mets:fileGrp[@USE='ORE']" mode="itemSummaryView-DIM-thumbnail" />
+                </xsl:when>
                 <xsl:otherwise>
                     <img class="img-thumbnail" alt="Thumbnail">
                         <xsl:attribute name="data-src">
