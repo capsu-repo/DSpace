@@ -2238,6 +2238,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-format">Physical Description</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-ddc">Shelf Location</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-issn">ISSN</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-isbn">ISBN</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-url">Associated content</message>
 
