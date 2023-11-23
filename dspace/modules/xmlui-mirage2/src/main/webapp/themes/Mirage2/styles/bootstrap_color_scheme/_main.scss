@@ -5,16 +5,16 @@
  *
  * http://www.dspace.org/license/
  */
-@import "compass";
+@import "../node_modules/compass-mixins/lib/compass";
 // variables
 @import "bootstrap_color_scheme/variables";
 // Bootstrap
 @function twbs-font-path($font-name) {
     @return "../vendor/bootstrap-sass-official/assets/fonts/" + $font-name
 }
-@import "../vendor/bootstrap-sass-official/assets/stylesheets/bootstrap";
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "bootstrap_color_scheme/bootstrap.min.css";
 @import "bootstrap_color_scheme/bootswatch";
 @import "shared/dspace-bootstrap-tweaks";
-@import "../vendor/jquery-ui/themes/base/jquery-ui.css";
+@import "../node_modules/jquery-ui-dist/jquery-ui";
 @import "style";
