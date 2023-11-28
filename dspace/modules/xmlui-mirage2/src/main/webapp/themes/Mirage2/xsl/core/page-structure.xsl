@@ -715,7 +715,7 @@
                             <xsl:text>&#169;&#160;</xsl:text>
                             <xsl:value-of select="date:year()"/>
                             <xsl:text>&#160;</xsl:text>
-                            <a target="_blank" href="http://www1.capsu.edu.ph">
+                            <a target="_blank" href="http://www.capsu.edu.ph">
                                 <acronym title="Capiz State University">
                                     <xsl:text>CAPSU</xsl:text>
                                 </acronym>
