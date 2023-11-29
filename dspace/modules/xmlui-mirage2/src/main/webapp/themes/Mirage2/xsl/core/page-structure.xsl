@@ -325,7 +325,7 @@
                 </script>
                 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">&#160;</script>
             </xsl:if>
-
+            <meta name="google-site-verification" content="oFaF55YnZptdTJPqWwIB_gU_-PvuidD77QL0uEiaAno" />
         </head>
     </xsl:template>
 
@@ -895,6 +895,17 @@
                 ga('send', 'pageview');
             </xsl:text></script>
         </xsl:if>
+        <!-- Google tag (gtag.js) -->
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XZYDBF6XRZ"></script>
+        <script>
+            <xsl:text>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-XZYDBF6XRZ');
+            </xsl:text>
+        </script>
     </xsl:template>
 
     <!--The Language Selection
