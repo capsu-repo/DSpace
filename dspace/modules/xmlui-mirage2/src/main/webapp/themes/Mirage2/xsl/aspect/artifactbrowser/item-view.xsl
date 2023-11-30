@@ -124,10 +124,15 @@
                     <xsl:if test="$ds_item_view_toggle_url != ''">
                         <xsl:call-template name="itemSummaryView-show-full"/>
                     </xsl:if>
+                    <xsl:call-template name="itemSummaryView-DIM-Agrovoc"/>
+                    <xsl:call-template name="itemSummaryView-DIM-scientificname"/>
+                    <xsl:call-template name="itemSummaryView-DIM-TGN"/>
                 </div>
                 <div class="col-sm-8">
                     <xsl:call-template name="itemSummaryView-DIM-abstract"/>
                     <xsl:call-template name="itemSummaryView-DIM-description"/>
+                    <xsl:call-template name="itemSummaryView-DIM-KEYWORDS"/>
+                    <xsl:call-template name="itemSummaryView-DIM-subject"/>
                     <xsl:call-template name="relation-associatedcontent"/>
                     <xsl:call-template name="itemSummaryView-DIM-URI"/>
                     <xsl:choose>
@@ -151,8 +156,6 @@
                         <xsl:call-template name="itemSummaryView-DIM-ISSN"/>
                         <xsl:call-template name="itemSummaryView-DIM-ISBN"/>
                     </div>
-                    <xsl:call-template name="itemSummaryView-DIM-subject"/>
-                    <xsl:call-template name="itemSummaryView-DIM-keyword"/>
                     <xsl:call-template name="itemSummaryView-DIM-discipline"/>
                     <xsl:call-template name="itemSummaryView-DIM-degree"/>
                     <xsl:call-template name="itemSummaryView-DIM-level"/>
@@ -520,7 +523,8 @@
             <xsl:text>&#160;</xsl:text>
             <a>
                 <xsl:attribute name="href">
-                    <xsl:value-of select="@authority"/>
+                    <xsl:text>https://agrovoc.fao.org/browse/agrovoc/en/page/</xsl:text>
+                    <xsl:value-of select="substring-after(@authority,'http://aims.fao.org/aos/agrovoc/')"/>
                 </xsl:attribute>
                 <xsl:attribute name="target">
                     <xsl:text>_blank</xsl:text>
@@ -622,7 +626,7 @@
                 <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-subject</i18n:text></h5>
                 <div>
                     <xsl:for-each select="dim:field[@element='subject'][@qualifier='lcsh']">
-                        <a>
+                        <a class="label label-primary">
                             <xsl:attribute name="href">
                                 <xsl:value-of
                                         select="concat($context-path,'/discover?filtertype=')"/>
@@ -641,15 +645,14 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="itemSummaryView-DIM-keyword">
-        <xsl:if test="dim:field[@element='subject' and not(@qualifier)]
-        or dim:field[@element='subject'][@qualifier='agrovoc']
-        or dim:field[@element='coverage'][@qualifier='spatial']">
-            <div class="item-page-field-wrapper table">
-                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-keyword</i18n:text></h5>
-                <div>
-                    <xsl:for-each select="dim:field[@element='subject' and not(@qualifier)]">
-                        <a>
+    <xsl:template name="itemSummaryView-DIM-KEYWORDS">
+        <xsl:if test="dim:field[@element='subject' and not(@qualifier) and descendant::text()]">
+            <div class="simple-item-view-issn item-page-field-wrapper table">
+                <h5>Keywords</h5>
+                <span>
+                    <xsl:for-each select="dim:field[@element='subject' and not(@qualifier) and descendant::text()]">
+                        <!-- <span class="badge"><xsl:copy-of select="./node()"/></span> -->
+                        <a class="label label-primary">
                             <xsl:attribute name="href">
                                 <xsl:value-of
                                         select="concat($context-path,'/discover?filtertype=')"/>
@@ -659,52 +662,102 @@
                             <xsl:value-of select="text()"/>
                         </a>
                         <xsl:if test="count(following-sibling::dim:field[@element='subject' and not(@qualifier)]) != 0">
-                            <xsl:text>; </xsl:text>
+                            <xsl:text> </xsl:text>
                         </xsl:if>
                     </xsl:for-each>
-                    <xsl:if test="dim:field[@element='subject'][@qualifier='agrovoc']">
-                        <xsl:if test="count(dim:field[@element='subject' and not(@qualifier)]) != 0">
-                            <xsl:text>; </xsl:text>
+                </span>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-Agrovoc">
+        <xsl:if test="dim:field[@element='subject'][@qualifier='agrovoc'][@authority]">
+            <div class="item-page-field-wrapper table">
+                <h5><i18n:text>AGROVOC keyword</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@mdschema='dc' and @element='subject' and @qualifier='agrovoc']">
+                        <a class="label label-primary">
+                            <xsl:attribute name="href">
+                                <xsl:value-of
+                                        select="concat($context-path,'/discover?filtertype=')"/>
+                                <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
+                                <xsl:copy-of select="."/>
+                            </xsl:attribute>
+                            <xsl:value-of select="text()"/>
+                        </a>
+                        <xsl:call-template name="itemSummaryView-DIM-AGROVOC-entry"/>
+                        <xsl:if test="count(following-sibling::dim:field[@mdschema='dc' and @element='subject' and @qualifier='agrovoc']) != 0">
+                            <br/><!-- <xsl:text>; </xsl:text> -->
                         </xsl:if>
-                        <xsl:for-each select="dim:field[@element='subject'][@qualifier='agrovoc']">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="concat($context-path,'/discover?filtertype=')"/>
-                                    <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
-                                    <xsl:copy-of select="."/>
-                                </xsl:attribute>
-                                <xsl:value-of select="text()"/>
-                            </a>
-                            <xsl:call-template name="itemSummaryView-DIM-AGROVOC-entry"/>
-                            <xsl:if test="count(following-sibling::dim:field[@element='subject'][@qualifier='agrovoc']) != 0">
-                                <xsl:text>; </xsl:text>
-                            </xsl:if>
-                        </xsl:for-each>
-                    </xsl:if>
-                    <xsl:if test="dim:field[@element='coverage'][@qualifier='spatial']">
-                        <xsl:if test="count(dim:field[@element='subject'][@qualifier='agrovoc']) != 0
-                        or count(dim:field[@element='subject' and not(@qualifier)]) != 0">
-                            <xsl:text>; </xsl:text>
-                        </xsl:if>
-                        <xsl:for-each select="dim:field[@element='coverage'][@qualifier='spatial']">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:value-of
-                                            select="concat($context-path,'/discover?filtertype=')"/>
-                                    <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
-                                    <xsl:copy-of select="."/>
-                                </xsl:attribute>
-                                <xsl:value-of select="text()"/>
-                            </a>
-                            <xsl:call-template name="itemSummaryView-DIM-TGN-entry"/>
-                            <xsl:if test="count(following-sibling::dim:field[@element='coverage'][@qualifier='spatial']) != 0">
-                                <xsl:text>; </xsl:text>
-                            </xsl:if>
-                        </xsl:for-each>
-                    </xsl:if>
+                    </xsl:for-each>
                 </div>
             </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-scientificname">
+        <xsl:if test="dim:field[@element='subject'][@qualifier='scientificname']">
+            <div class="item-page-field-wrapper table">
+                <h5><i18n:text>xmlui.dri2xhtml.METS-1.0.item-scientificname</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@element='subject'][@qualifier='scientificname']">
+                        <a class="label label-primary">
+                            <xsl:attribute name="href">
+                                <xsl:value-of
+                                        select="concat($context-path,'/discover?filtertype=')"/>
+                                <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
+                                <xsl:copy-of select="."/>
+                            </xsl:attribute>
+                            <xsl:value-of select="text()"/>
+                        </a>
+                        <xsl:call-template name="itemSummaryView-DIM-GBIF-entry"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='subject'][@qualifier='scientificname']) != 0">
+                            <br/><!-- <xsl:text>; </xsl:text> -->
+                        </xsl:if>
+                    </xsl:for-each>
+                </div>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-TGN">
+        <xsl:if test="dim:field[@element='coverage'][@qualifier='spatial'][@authority]">
+            <div class="item-page-field-wrapper table">
+                <h5><i18n:text>Geographic names</i18n:text></h5>
+                <div>
+                    <xsl:for-each select="dim:field[@element='coverage'][@qualifier='spatial']">
+                        <a class="label label-primary">
+                            <xsl:attribute name="href">
+                                <xsl:value-of
+                                        select="concat($context-path,'/discover?filtertype=')"/>
+                                <xsl:text>subject&amp;filter_relational_operator=equals&amp;filter=</xsl:text>
+                                <xsl:copy-of select="."/>
+                            </xsl:attribute>
+                            <xsl:value-of select="text()"/>
+                        </a>
+                        <xsl:call-template name="itemSummaryView-DIM-TGN-entry"/>
+                        <xsl:if test="count(following-sibling::dim:field[@element='coverage'][@qualifier='spatial']) != 0">
+                            <br/><!-- <xsl:text>; </xsl:text> -->
+                        </xsl:if>
+                    </xsl:for-each>
+                </div>
+            </div>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="itemSummaryView-DIM-GBIF-entry">
+        <xsl:if test="@authority">
+            <xsl:text>&#160;</xsl:text>
+            <a>
+                <xsl:attribute name="href">
+                    <xsl:text>https://www.gbif.org/species/</xsl:text>
+                    <xsl:value-of select="substring-after(@authority,'gbif:')"/>
+                </xsl:attribute>
+                <xsl:attribute name="target">
+                    <xsl:text>_blank</xsl:text>
+                </xsl:attribute>
+                <img src="{$theme-path}images/gbif-16x16.png" alt="GBIF" class="vocabulary" title="Global Biodiversity Information Facility"/>
+            </a>
         </xsl:if>
     </xsl:template>
 

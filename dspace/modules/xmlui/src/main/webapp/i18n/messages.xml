@@ -2241,6 +2241,7 @@
 	<message key="xmlui.dri2xhtml.METS-1.0.item-isbn">ISBN</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-doi">DOI</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.item-url">Associated content</message>
+	<message key="xmlui.dri2xhtml.METS-1.0.item-scientificname">Scientific name</message>
 
 	<message key="xmlui.dri2xhtml.METS-1.0.size-bytes">bytes</message>
 	<message key="xmlui.dri2xhtml.METS-1.0.size-kilobytes">Kb</message>
