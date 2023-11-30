@@ -539,7 +539,8 @@
             <xsl:text>&#160;</xsl:text>
             <a>
                 <xsl:attribute name="href">
-                    <xsl:value-of select="@authority"/>
+                    <xsl:text>http://vocab.getty.edu/page/tgn/</xsl:text>
+                    <xsl:value-of select="substring-after(@authority,'tgn/')"/>
                 </xsl:attribute>
                 <xsl:attribute name="target">
                     <xsl:text>_blank</xsl:text>
