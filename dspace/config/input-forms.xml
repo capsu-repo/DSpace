@@ -427,6 +427,17 @@ it, please enter the types and the actual numbers or codes.</hint>
        <field>
          <dc-schema>dc</dc-schema>
          <dc-element>subject</dc-element>
+         <dc-qualifier>scientificname</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Taxonomic terms</label>
+         <input-type>twobox</input-type>
+         <hint>Enter appropriate scientific names described or mentioned in this record.</hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
          <dc-qualifier>lcsh</dc-qualifier>
          <!-- An input-type of twobox MUST be marked as repeatable -->
          <repeatable>true</repeatable>
@@ -668,6 +679,17 @@ it, please enter the types and the actual numbers or codes.</hint>
          <label>AGROVOC Keywords</label>
          <input-type>twobox</input-type>
          <hint>Enter the topics covering all areas of interest of FAO, including food, nutrition, agriculture, fisheries, forestry and the environment described or mentioned in this record</hint>
+       </field>
+
+       <field>
+         <dc-schema>dc</dc-schema>
+         <dc-element>subject</dc-element>
+         <dc-qualifier>scientificname</dc-qualifier>
+         <!-- An input-type of twobox MUST be marked as repeatable -->
+         <repeatable>true</repeatable>
+         <label>Taxonomic terms</label>
+         <input-type>twobox</input-type>
+         <hint>Enter appropriate scientific names described or mentioned in this record.</hint>
        </field>
 
        <field>
