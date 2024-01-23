@@ -354,8 +354,8 @@
                                 <img src="{$theme-path}images/capsu-logo.png"/>
                             </a>
                         </span>
-                        <span class="headerInfoName">CAPSU</span>
-                        <span class="headerInfoText">INSTITUTIONAL REPOSITORY</span>
+                        <span class="headerInfoName">HANDURAW</span>
+                        <span class="headerInfoText">CAPSU INSTITUTIONAL REPOSITORY</span>
 
                         <div class="navbar-header pull-right visible-xs hidden-sm hidden-md hidden-lg">
                         <ul class="nav nav-pills pull-left ">
@@ -896,16 +896,19 @@
             </xsl:text></script>
         </xsl:if>
         <!-- Google tag (gtag.js) -->
-        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XZYDBF6XRZ"></script>
+        <!-- <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XZYDBF6XRZ"></script>
         <script>
             <xsl:text>
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
 
-              gtag('config', 'G-XZYDBF6XRZ');
+              gtag('config', 'G-XZYDBF6XRZ', {
+                cookie_domain: 'repository.capsu.edu.ph',
+                cookie_flags: 'SameSite=None;Secure',
+                });
             </xsl:text>
-        </script>
+        </script> -->
     </xsl:template>
 
     <!--The Language Selection
