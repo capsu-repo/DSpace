@@ -37,12 +37,14 @@ public class FASTAuthority implements ChoiceAuthority {
 	Logger log = Logger.getLogger(FASTAuthority.class);
 	String fasturl = "https://fast.oclc.org/searchfast/fastsuggest";
 	
-	@Override
+    public FASTAuthority() {
+    }
+
 	public Choices getMatches(String field, String text, Collection collection, int start, int limit, String locale) {
-	
-		List<BasicNameValuePair> args = new ArrayList<BasicNameValuePair>();
+        List<BasicNameValuePair> args = new ArrayList();
 		args.add(new BasicNameValuePair("query", text));
-        String sUrl = fasturl + "?" + URLEncodedUtils.format(args, "UTF8") + "&suggest=autoSubject&queryReturn=auth,idroot,suggestall,type&rows=20";
+        String sUrl = this.fasturl + "?" + URLEncodedUtils.format(args, "UTF8") + "&suggest=autoSubject&queryReturn=auth,idroot,suggestall,type&rows=20";
+
         try {
 			URL url = new URL(sUrl);
         	InputStream is = url.openStream();
@@ -55,23 +57,20 @@ public class FASTAuthority implements ChoiceAuthority {
                 sb.append(inputLine);
             }
             in.close();
-            
-            //VIAF responds a json with duplicate keys? must remove them as they are unused
             String str= sb.toString().replaceAll("\"bav\":\"adv\\d+\",", "").replaceAll("\"dnb\":\"\\d+\",", "");
-            JSONObject ob = new JSONObject(str.substring(str.indexOf('{')));
+            JSONObject ob = new JSONObject(str.substring(str.indexOf(123)));
             JSONObject response = ob.getJSONObject("response");
-            //JSONArray results = ob.getJSONArray("docs");
 			JSONArray results = (JSONArray) response.get("docs");
 
             Choice[] choices = new Choice[results.length()];
-            for(int i=0;i< results.length();i++){
+
+            for(int i = 0; i < results.length(); ++i) {
             	JSONObject result = results.getJSONObject(i);
             	String term = result.getString("auth");
             	String type = result.getString("type");
             	JSONArray suggestall = (JSONArray) result.get("suggestall");
-            	//String label = result.getString("auth");
             	String authority = result.getString("idroot");
-            	final String label;
+                String label;
 				if (type.equals("alt")){
 					label = suggestall.getString(0) + " USE: " + term;
 				} else {
@@ -80,23 +79,20 @@ public class FASTAuthority implements ChoiceAuthority {
             	choices[i] = new Choice(authority, term, label);
             }
             
-            return new Choices(choices, 0, choices.length, Choices.CF_ACCEPTED, false);
-		} catch (MalformedURLException e) {
-			log.error(e.getMessage(),e);
-		} catch (IOException e) {
-			log.error(e.getMessage(),e);
+            return new Choices(choices, 0, choices.length, 600, false);
+        } catch (MalformedURLException var26) {
+            this.log.error(var26.getMessage(), var26);
+        } catch (IOException var27) {
+            this.log.error(var27.getMessage(), var27);
 		} 
         
 		return null;
 	}
 
-	@Override
 	public Choices getBestMatch(String field, String text, Collection collection, String locale) {
-
-		return getMatches(field, text, collection, 0, 1, locale);
+        return this.getMatches(field, text, collection, 0, 1, locale);
 	}
 
-	@Override
 	public String getLabel(String field, String key, String locale) {
 
 		return key;
