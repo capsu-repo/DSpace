@@ -2,8 +2,24 @@
 <document xmlns="http://di.tamu.edu/DRI/1.0/" xmlns:i18n="http://apache.org/cocoon/i18n/2.1" version="1.1">
 <body>
 <div id="file.news.div.news" n="news" rend="primary">
-<head>DSpace Repository</head>
-<p>DSpace is a digital service that collects, preserves, and distributes digital material. Repositories are important tools for preserving an organization&apos;s legacy; they facilitate digital preservation and scholarly communication.</p>
+<head>Handuraw - Capiz State University (CAPSU) Institutional Repository</head>
+<p>
+  Handuraw is the digital archive of Capiz State University (CAPSU) that aims to empower CAPSUnians to ideate, contribute, share, collaborate, and disseminate their knowledge and innovations.
+</p>
+<p>
+  Objectives:
+  <ol>
+    <li>
+      Facilitate long-term and sustainable preservation of CAPSU’s digital assets for easy access and retrieval.
+    </li>
+    <li>
+      Provide efficient and user-friendly access to CAPSU digital contents such as CAPSU journals, books, manuals, theses, dissertations, and other publications.
+    </li>
+    <li>
+      Support scholarly initiatives aligned with instruction, research, extension, and production by making these publications accessible and visible to users and researchers.
+    </li>
+  </ol>
+</p>  
 </div>
 </body>
 <options/>
