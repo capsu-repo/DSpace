@@ -884,7 +884,7 @@
 
     <xsl:template name="addJavascript-google-analytics">
         <!-- Add a google analytics script if the key is present -->
-        <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
+        <!-- <xsl:if test="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']">
             <script><xsl:text>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -894,9 +894,9 @@
                 ga('create', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='google'][@qualifier='analytics']"/><xsl:text>', '</xsl:text><xsl:value-of select="/dri:document/dri:meta/dri:pageMeta/dri:metadata[@element='request'][@qualifier='serverName']"/><xsl:text>');
                 ga('send', 'pageview');
             </xsl:text></script>
-        </xsl:if>
+        </xsl:if> -->
         <!-- Google tag (gtag.js) -->
-        <!-- <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XZYDBF6XRZ"></script>
+        <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-XZYDBF6XRZ"></script>
         <script>
             <xsl:text>
               window.dataLayer = window.dataLayer || [];
@@ -908,7 +908,7 @@
                 cookie_flags: 'SameSite=None;Secure',
                 });
             </xsl:text>
-        </script> -->
+        </script>
     </xsl:template>
 
     <!--The Language Selection
