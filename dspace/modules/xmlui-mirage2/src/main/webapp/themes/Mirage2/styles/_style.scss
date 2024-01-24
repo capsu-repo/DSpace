@@ -260,23 +260,23 @@ a, a:hover {
     height: 60px
 }
 
-.headerInfoName {
+.headerInfoName, .headerInfoText {
     color: $brand-primary;
-    font-size: 33px;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 10px;
     margin-left: -10px;
     position: absolute;
+}
+
+.headerInfoName {
+    font-size: 27px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin-bottom: 10px;
     font-family: $font-family-serif;
 }
 
 .headerInfoText {
-    font-size: 20px;
-    color: $brand-primary;
-    position: absolute;
+    font-size: 15px;
     top: 38px;
-    margin-left: -10px;
     line-height: 15px;
 }
 
