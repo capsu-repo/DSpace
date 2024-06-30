@@ -501,19 +501,16 @@
     </xsl:template>
 
     <xsl:template name="itemSummaryView-DIM-LCSH-entry">
-        <xsl:if test="starts-with(@authority,'fst')">
+        <xsl:if test="@authority">
             <xsl:text>&#160;</xsl:text>
             <a>
                 <xsl:attribute name="href">
-                    <xsl:text>http://id.worldcat.org/fast/</xsl:text>
                     <xsl:value-of select="@authority"/>
                 </xsl:attribute>
                 <xsl:attribute name="target">
                     <xsl:text>_blank</xsl:text>
                 </xsl:attribute>
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAJNQTFRFAAAAIHm1IHm1IHm1IHm1IHm1IHm1IHm1IHm1IHm1IHm1IHm1IHm1Ppo8Ppo8Ppo8OpZLNpFdPpo8Ppo8Ppo8Ppo8Ppo8IHm1Ppo8e5Iz9YIgg5Ey9YIg9YIg9YIgPpo89YIg9YIg9YIgIHm10oE59YIg9YIg9YIg14E15oQiPpo89YIgoI0t9YIg9YIg9YIg9YIgFSvS3AAAADF0Uk5TABCA3//PYK/vIJ8wQHDf//+vn8+Aj2CP7zBA/+//UECPIJ+/v6/fgN+/EGDvzxAwv/6gdEsAAACoSURBVHicPU5RFoIwDMvGQBBhykARQZkKqIh4/9O5bmo+2jQvTQuAcU8I4Qf4gvnCYcF+c8gjRDwUSytwEcaWxKFYUfdcS1Ip1xtiwqOaSZUXqVQk0OZWJk7OjbAzLC3cRVUCvm+I3FcVrBMIKPRQN019BE5GMBZWNa3W50YjKemzi3ftyN8PSHMbFdxswHDP1MOFtyPV7ll8Z+jpBYy1xh/z9J762dIPwB8J12aqWq4AAAAASUVORK5CYII="
-                     alt="OCLC - FAST (Faceted Application of Subject Terminology)" class="vocabulary"
-                     title="OCLC - FAST (Faceted Application of Subject Terminology)"/>
+                <img src="{$theme-path}images/LOC.png" alt="LCSH" class="vocabulary" title="LCSH"/>
             </a>
         </xsl:if>
     </xsl:template>
