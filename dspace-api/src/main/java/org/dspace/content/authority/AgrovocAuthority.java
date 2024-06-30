@@ -34,7 +34,7 @@ import org.json.JSONObject;
 public class AgrovocAuthority implements ChoiceAuthority {
 
     Logger log = Logger.getLogger(AgrovocAuthority.class);
-	String agrovocurl = "https://agrovoc.uniroma2.it/agrovoc/rest/v1/search";
+    String agrovocurl = "https://agrovoc.fao.org/agrovoc/rest/v1/search";
 	
 	@Override
 	public Choices getMatches(String field, String text, Collection collection, int start, int limit, String locale) {
