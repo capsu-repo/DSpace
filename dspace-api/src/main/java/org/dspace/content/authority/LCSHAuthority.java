@@ -63,7 +63,7 @@ public class LCSHAuthority implements ChoiceAuthority {
 			Choice[] choices = new Choice[results.length()];
 			for(int i=0;i< results.length();i++){
 				JSONObject result = results.getJSONObject(i);
-                String term = result.getString("suggestLabel");
+                String term = result.getString("aLabel");
                 String label = result.getString("aLabel");
 				String authority = result.getString("uri");
 

@@ -635,7 +635,7 @@
                         </a>
                         <xsl:call-template name="itemSummaryView-DIM-LCSH-entry"/>
                         <xsl:if test="count(following-sibling::dim:field[@element='subject'][@qualifier='lcsh']) != 0">
-                            <xsl:text>; </xsl:text>
+                            <xsl:text>&#160; </xsl:text>
                         </xsl:if>
                     </xsl:for-each>
                 </div>
